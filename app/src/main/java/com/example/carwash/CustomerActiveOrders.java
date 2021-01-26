@@ -72,41 +72,9 @@ public class CustomerActiveOrders extends AppCompatActivity implements Navigatio
             }
         });
 
-        Button finish = findViewById(R.id.finish_order);
-        Button cancel = findViewById(R.id.cancel_order);
 
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (list.size() >0) {
-                    Order currOrder = list.get(list.size() - 1);
-                    FirebaseDatabase.getInstance().getReference().child("Orders").child("Pending").child(currOrder.getId()).setValue(currOrder);
-                    FirebaseDatabase.getInstance().getReference().child("Orders").child("Active").removeValue();
-                    Intent intent = new Intent(CustomerActiveOrders.this, Pending_Orders.class);
-                    startActivity(intent);
-                }
-                else {
-                    Toast.makeText(CustomerActiveOrders.this, "There is no Accepted Order",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
 
-        finish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (list.size()>0) {
-                    Intent openOrder = new Intent(CustomerActiveOrders.this, Pending_Orders.class);
-                    Order currOrder = list.get(list.size() - 1);
-                    FirebaseDatabase.getInstance().getReference().child("Orders").child("History").child(currOrder.getProviderID()).child(currOrder.getId()).setValue(currOrder);
-                    FirebaseDatabase.getInstance().getReference().child("Orders").child("History").child(currOrder.getCustomerID()).child(currOrder.getId()).setValue(currOrder);
-                    FirebaseDatabase.getInstance().getReference().child("Orders").child("Active").removeValue();
-                    startActivity(openOrder);
-                }
-                else {
-                    Toast.makeText(CustomerActiveOrders.this, "There is no Accepted Order",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+
 
 
         setSupportActionBar(tb);
@@ -135,14 +103,18 @@ public class CustomerActiveOrders extends AppCompatActivity implements Navigatio
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.nav_activeorder:
+            case R.id.nav_order:
+                Intent openMainActivity = new Intent(CustomerActiveOrders.this, MainActivity.class);
+                startActivity(openMainActivity);
                 break;
             case R.id.nav_pending:
-                Intent openPending = new Intent(CustomerActiveOrders.this, Pending_Orders.class);
+                Intent openPending = new Intent(CustomerActiveOrders.this, CustomerPending_Orders.class);
                 startActivity(openPending);
                 break;
+            case R.id.nav_activeorder:
+                break;
             case R.id.nav_history:
-                Intent openHistory = new Intent(CustomerActiveOrders.this, provider_history.class);
+                Intent openHistory = new Intent(CustomerActiveOrders.this, customer_history.class);
                 startActivity(openHistory);
                 break;
             case R.id.nav_logout:

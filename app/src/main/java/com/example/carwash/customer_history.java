@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,6 +32,8 @@ public class customer_history extends AppCompatActivity implements NavigationVie
     OrderAdapter adapter;
     RecyclerView listView;
 
+    FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,12 +44,15 @@ public class customer_history extends AppCompatActivity implements NavigationVie
         Toolbar tb = findViewById(R.id.toolbar);
         listView = findViewById(R.id.historyList);
 
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+
         ArrayList<Order> list = new ArrayList<>();
         adapter = new OrderAdapter(this,list);
         listView.setAdapter(adapter);
         listView.setLayoutManager(new LinearLayoutManager(this));
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Orders").child("History").child("ServiceProvider").child(currentUser.getUid());
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Orders").child("History").child("Customer").child(currentUser.getUid());
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -94,11 +100,15 @@ public class customer_history extends AppCompatActivity implements NavigationVie
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_order:
-                Intent openOrder = new Intent(customer_history.this,Orders.class);
+                Intent openOrder = new Intent(customer_history.this,MainActivity.class);
                 startActivity(openOrder);
                 break;
+            case R.id.nav_activeorder:
+                Intent openActive = new Intent(customer_history.this, CustomerActiveOrders.class);
+                startActivity(openActive);
+                break;
             case R.id.nav_pending:
-                Intent openPending = new Intent(customer_history.this, Pending_Orders.class);
+                Intent openPending = new Intent(customer_history.this, CustomerPending_Orders.class);
                 startActivity(openPending);
                 break;
             case R.id.nav_history:

@@ -21,11 +21,11 @@
         <activity android:name=".ChooseCarWash" />
         <activity android:name=".YourLocation"/>
         <activity android:name=".MainActivity"/>
-
-
         <service android:name=".FetchAddressIntentService" />
         <activity android:name=".RegisterActivity"/>
-
+        <activity android:name=".CustomerActiveOrders"/>
+        <activity android:name=".CustomerPending_Orders"/>
+        <activity android:name=".customer_history"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
