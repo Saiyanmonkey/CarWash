@@ -1,6 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mycardview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="28dp"
+    android:layout_marginTop="12dp"
+    android:elevation="90dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="12dp">
 
-</TextView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="148dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/customerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/mycardview"
+            android:layout_alignTop="@+id/mycardview"
+            android:layout_margin="18dp"
+            android:fontFamily="@font/opensans_bold"
+            android:text="Customer"
+            android:textColor="#1C69FF"
+            android:textSize="16dp"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/locationtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/customerName"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/opensans_bold"
+            android:text="Location"
+            android:textColor="#C6C6C6"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/pricetitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/customerName"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="28dp"
+            android:layout_toRightOf="@id/locationtitle"
+            android:fontFamily="@font/opensans_bold"
+            android:text="Price"
+            android:textColor="#C6C6C6"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/locationname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/locationtitle"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/opensans_bold"
+            android:text="Location name"
+            android:textColor="#000000"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/pricevalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pricetitle"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@id/locationtitle"
+            android:fontFamily="@font/opensans_bold"
+            android:text="Price"
+            android:textColor="#000000"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/package_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="18dp"
+            android:layout_toRightOf="@id/locationtitle"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/opensans_bold"
+            android:gravity="center"
+
+            android:text="Package"
+            android:textColor="#000000"
+            android:textSize="12dp" />
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/basic_cardview">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Accept This Order?"
+        android:textColor="@color/blue"
+        android:gravity="center"
+
+        android:textSize="40sp"
+        />
+
+    <LinearLayout
+        android:layout_marginTop="40sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        >
+        <Button
+            android:layout_margin="10dp"
+            android:id="@+id/button_reject"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="REJECT"
+            android:background="@drawable/basic_button"
+            android:textColor="@color/white"/>
+        <Button
+            android:layout_margin="10dp"
+            android:id="@+id/button_accept"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/basic_button"
+            android:textColor="@color/white"
+            android:text="ACCEPT"/>
+
+    </LinearLayout>
+
+</LinearLayout>

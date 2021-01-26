@@ -9,6 +9,63 @@
     tools:context=".Orders"
     tools:openDrawer="start">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/menu">
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Orders"
+            android:textColor="@color/black"
+            android:textSize="40sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/orderList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/cancel_order"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/basic_button"
+                android:padding="10dp"
+                android:text="CANCEL ORDER" />
+
+            <Button
+                android:id="@+id/finish_order"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/basic_button"
+                android:padding="10dp"
+                android:text="FINISH ORDER" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_bar"
         android:layout_width="wrap_content"
@@ -20,37 +77,6 @@
         app:itemTextColor="@color/white"
 
         app:menu="@menu/main" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:navigationIcon="@drawable/menu" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dp"
-                android:text="Orders"
-                android:textColor="@color/black"
-                android:textSize="40sp" />
-
-            <ListView
-                android:id="@+id/orderList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-    </ScrollView>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

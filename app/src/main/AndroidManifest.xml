@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.carwash">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,15 +14,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CarWash">
-        <activity android:name=".history"/>
-        <activity android:name=".Pending_Orders" />
-        <activity android:name=".Orders">
+
+        <activity android:name=".OrderSuccess"/>
+        <activity android:name=".ConfirmOrder" />
+        <activity android:name=".SelectPackages" />
+        <activity android:name=".ChooseCarWash" />
+        <activity android:name=".YourLocation"/>
+        <activity android:name=".MainActivity"/>
+
+
+        <service android:name=".FetchAddressIntentService" />
+        <activity android:name=".RegisterActivity"/>
+
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".provider_history" />
+        <activity android:name=".Orders" />
+        <activity android:name=".Pending_Orders" />
+
     </application>
 
 </manifest>
