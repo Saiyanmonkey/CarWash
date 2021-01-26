@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +28,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class Orders extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    FirebaseAuth mAuth;
+    FirebaseUser currentUser;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     RecyclerView listView;
@@ -37,6 +42,9 @@ public class Orders extends AppCompatActivity implements NavigationView.OnNaviga
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orders);
 
+
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_bar);
         Toolbar tb = findViewById(R.id.toolbar);
@@ -47,7 +55,7 @@ public class Orders extends AppCompatActivity implements NavigationView.OnNaviga
         listView.setAdapter(adapter);
         listView.setLayoutManager(new LinearLayoutManager(this));
 
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Orders").child("Active");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Orders").child("Active").child("ServiceProvider").child(currentUser.getUid());
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -73,8 +81,12 @@ public class Orders extends AppCompatActivity implements NavigationView.OnNaviga
             public void onClick(View v) {
                 if (list.size() >0) {
                     Order currOrder = list.get(list.size() - 1);
-                    FirebaseDatabase.getInstance().getReference().child("Orders").child("Pending").child(currOrder.getId()).setValue(currOrder);
-                    FirebaseDatabase.getInstance().getReference().child("Orders").child("Active").removeValue();
+                    FirebaseDatabase.getInstance().getReference().child("Orders").child("Pending").child("ServiceProvider").child(currOrder.getId()).setValue(currOrder);
+                    FirebaseDatabase.getInstance().getReference().child("Orders").child("Pending").child("Customer").child(currOrder.getCustomerID()).child(currOrder.getId()).setValue(currOrder);
+
+
+                    FirebaseDatabase.getInstance().getReference().child("Orders").child("Active").child("ServiceProvider").child(currOrder.getProviderID()).removeValue();
+                    FirebaseDatabase.getInstance().getReference().child("Orders").child("Active").child("Customer").child(currOrder.getCustomerID()).removeValue();
                     Intent intent = new Intent(Orders.this, Pending_Orders.class);
                     startActivity(intent);
                 }

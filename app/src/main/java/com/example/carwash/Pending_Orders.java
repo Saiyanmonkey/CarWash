@@ -53,7 +53,7 @@ public class Pending_Orders extends AppCompatActivity implements NavigationView.
         listView.setLayoutManager(new LinearLayoutManager(this));
 
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Orders").child("Pending");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Orders").child("Pending").child("ServiceProvider");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

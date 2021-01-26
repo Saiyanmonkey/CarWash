@@ -78,8 +78,12 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
                         Order currOrder = mList.get(position);
                         currOrder.setProviderID(currentUser.getUid());
                         openOrder.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        FirebaseDatabase.getInstance().getReference().child("Orders").child("Active").setValue(currOrder);
-                        FirebaseDatabase.getInstance().getReference().child("Orders").child("Pending").child(String.valueOf(currOrder.getId())).removeValue();
+                        FirebaseDatabase.getInstance().getReference().child("Orders").child("Active").child("Customer").child(currOrder.getCustomerID()).setValue(currOrder);
+                        FirebaseDatabase.getInstance().getReference().child("Orders").child("Active").child("ServiceProvider").child(currOrder.getProviderID()).setValue(currOrder);
+
+                        FirebaseDatabase.getInstance().getReference().child("Orders").child("Pending").child("ServiceProvider").child(currOrder.getId()).removeValue();
+                        FirebaseDatabase.getInstance().getReference().child("Orders").child("Pending").child("Customer").child(currOrder.getCustomerID()).child(currOrder.getId()).removeValue();
+
 
                         context.startActivity(openOrder);
                     }

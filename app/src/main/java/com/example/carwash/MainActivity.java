@@ -76,6 +76,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent openHistory = new Intent(MainActivity.this, customer_history.class);
                 startActivity(openHistory);
                 break;
+            case R.id.nav_activeorder:
+                Intent openActiveOrder = new Intent(MainActivity.this, CustomerActiveOrders.class);
+                startActivity(openActiveOrder);
+                break;
             case R.id.nav_logout:
                 Intent openLogin = new Intent(MainActivity.this,LoginActivity.class);
                 mAuth.signOut();

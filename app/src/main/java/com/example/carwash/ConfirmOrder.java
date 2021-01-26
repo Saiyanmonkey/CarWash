@@ -61,11 +61,10 @@ public class ConfirmOrder extends AppCompatActivity {
                 Order currentOrder = new Order(orderid,currentUser.getDisplayName(),address,packagename,providername,packagecost);
                 currentOrder.setCustomerID(currentUser.getUid());
 
-                FirebaseDatabase.getInstance().getReference().child("Orders").child("Pending").child(currentOrder.getId()).setValue(currentOrder);
-
+                FirebaseDatabase.getInstance().getReference().child("Orders").child("Pending").child("ServiceProvider").child(currentOrder.getId()).setValue(currentOrder);
+                FirebaseDatabase.getInstance().getReference().child("Orders").child("Pending").child("Customer").child(currentUser.getUid()).child(currentOrder.getId()).setValue(currentOrder);
                 Intent intent = new Intent(ConfirmOrder.this, OrderSuccess.class);
                 startActivity(intent);
-
 
 
             }
