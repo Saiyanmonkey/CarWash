@@ -135,7 +135,7 @@ public class CustomerActiveOrders extends AppCompatActivity implements Navigatio
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.nav_order:
+            case R.id.nav_activeorder:
                 break;
             case R.id.nav_pending:
                 Intent openPending = new Intent(CustomerActiveOrders.this, Pending_Orders.class);

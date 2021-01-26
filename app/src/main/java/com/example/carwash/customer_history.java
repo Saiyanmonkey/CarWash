@@ -46,7 +46,7 @@ public class customer_history extends AppCompatActivity implements NavigationVie
         listView.setAdapter(adapter);
         listView.setLayoutManager(new LinearLayoutManager(this));
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Orders").child("History").child(currentUser.getUid());
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Orders").child("History").child("ServiceProvider").child(currentUser.getUid());
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

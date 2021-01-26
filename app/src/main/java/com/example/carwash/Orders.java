@@ -102,8 +102,8 @@ public class Orders extends AppCompatActivity implements NavigationView.OnNaviga
                 if (list.size()>0) {
                     Intent openOrder = new Intent(Orders.this, Pending_Orders.class);
                     Order currOrder = list.get(list.size() - 1);
-                    FirebaseDatabase.getInstance().getReference().child("Orders").child("History").child(currOrder.getProviderID()).child(currOrder.getId()).setValue(currOrder);
-                    FirebaseDatabase.getInstance().getReference().child("Orders").child("History").child(currOrder.getCustomerID()).child(currOrder.getId()).setValue(currOrder);
+                    FirebaseDatabase.getInstance().getReference().child("Orders").child("History").child("ServiceProvider").child(currOrder.getProviderID()).child(currOrder.getId()).setValue(currOrder);
+                    FirebaseDatabase.getInstance().getReference().child("Orders").child("History").child("Customer").child(currOrder.getCustomerID()).child(currOrder.getId()).setValue(currOrder);
                     FirebaseDatabase.getInstance().getReference().child("Orders").child("Active").removeValue();
                     startActivity(openOrder);
                 }
