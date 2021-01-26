@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_order:
                 break;
             case R.id.nav_pending:
-                Intent openPending = new Intent(MainActivity.this, Pending_Orders.class);
+                Intent openPending = new Intent(MainActivity.this, CustomerPending_Orders.class);
                 startActivity(openPending);
                 break;
             case R.id.nav_history:
