@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderSuccess">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order Success!"
+        android:layout_marginTop="168dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="28dp"
+        android:id="@+id/orderdone"
+        android:textColor="#000"
+        android:fontFamily="@font/opensans_bold"
+        />
+
+    <ImageView
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:id="@+id/successicon"
+        android:background="@drawable/successful"
+        android:layout_below="@id/orderdone"
+        android:layout_marginTop="42dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/successicon"
+        android:layout_centerHorizontal="true"
+        android:text="Done"
+        android:fontFamily="@font/opensans_bold"
+        android:textSize="18dp"
+        android:id="@+id/backhome"
+        android:textAllCaps="false"
+        android:background="@drawable/basic_button"
+        android:textColor="#FFF"
+        android:layout_marginTop="56dp"
+        />
+
+
+
+
+
+</RelativeLayout>
