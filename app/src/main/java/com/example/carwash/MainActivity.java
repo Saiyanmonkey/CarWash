@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
+
+
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, tb, R.string.bar_open, R.string.bar_close);
         drawerLayout.addDrawerListener(toggle);

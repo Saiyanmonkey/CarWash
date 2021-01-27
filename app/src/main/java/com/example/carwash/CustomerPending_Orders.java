@@ -166,7 +166,7 @@ public class CustomerPending_Orders extends AppCompatActivity implements Navigat
                 startActivity(openHistory);
                 break;
             case R.id.nav_forum:
-                Intent openForum = new Intent(CustomerPending_Orders.this, ForumActivity.class);
+                Intent openForum = new Intent(CustomerPending_Orders.this, ForumCustomerActivity.class);
                 startActivity(openForum);
                 break;
             case R.id.nav_logout:

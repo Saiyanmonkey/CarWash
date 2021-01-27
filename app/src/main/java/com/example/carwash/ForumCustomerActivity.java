@@ -166,6 +166,10 @@ public class ForumCustomerActivity extends AppCompatActivity implements Navigati
                 break;
             case R.id.nav_forum:
                 break;
+            case R.id.nav_activeorder:
+                Intent intent = new Intent(ForumCustomerActivity.this,CustomerActiveOrders.class);
+                startActivity(intent);
+                break;
             case R.id.nav_logout:
                 Intent openLogin = new Intent(ForumCustomerActivity.this, LoginActivity.class);
                 mAuth.signOut();

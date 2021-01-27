@@ -126,7 +126,7 @@ public class CustomerActiveOrders extends AppCompatActivity implements Navigatio
                 startActivity(openHistory);
                 break;
             case R.id.nav_forum:
-                Intent openForum = new Intent(CustomerActiveOrders.this, ForumActivity.class);
+                Intent openForum = new Intent(CustomerActiveOrders.this, ForumCustomerActivity.class);
                 startActivity(openForum);
                 break;
             case R.id.nav_logout:
