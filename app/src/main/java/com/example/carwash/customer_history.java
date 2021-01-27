@@ -113,6 +113,10 @@ public class customer_history extends AppCompatActivity implements NavigationVie
                 break;
             case R.id.nav_history:
                 break;
+            case R.id.nav_forum:
+                Intent openForum = new Intent(customer_history.this, ForumActivity.class);
+                startActivity(openForum);
+                break;
             case R.id.nav_logout:
                 Intent openLogin = new Intent(customer_history.this,LoginActivity.class);
                 startActivity(openLogin);

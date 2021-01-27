@@ -93,8 +93,6 @@ public class LoginActivity extends AppCompatActivity {
                     btnLogin.setVisibility(View.VISIBLE);
 
                 } else {
-
-
                     signIn(mail, password);
                 }
 
