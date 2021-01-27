@@ -146,6 +146,10 @@ public class Pending_Orders extends AppCompatActivity implements NavigationView.
                 Intent openHistory = new Intent(Pending_Orders.this, provider_history.class);
                 startActivity(openHistory);
                 break;
+            case R.id.nav_forum:
+                Intent openForum = new Intent(Pending_Orders.this, ForumActivity.class);
+                startActivity(openForum);
+                break;
             case R.id.nav_logout:
                 Intent openLogin = new Intent(Pending_Orders.this,LoginActivity.class);
                 startActivity(openLogin);

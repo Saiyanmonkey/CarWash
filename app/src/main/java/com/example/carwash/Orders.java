@@ -150,6 +150,10 @@ public class Orders extends AppCompatActivity implements NavigationView.OnNaviga
                 Intent openHistory = new Intent(Orders.this, provider_history.class);
                 startActivity(openHistory);
                 break;
+            case R.id.nav_forum:
+                Intent openForum = new Intent(Orders.this, ForumActivity.class);
+                startActivity(openForum);
+                break;
             case R.id.nav_logout:
                 Intent openLogin = new Intent(Orders.this, LoginActivity.class);
                 startActivity(openLogin);

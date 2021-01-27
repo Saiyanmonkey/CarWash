@@ -80,6 +80,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent openActiveOrder = new Intent(MainActivity.this, CustomerActiveOrders.class);
                 startActivity(openActiveOrder);
                 break;
+            case R.id.nav_forum:
+                Intent openForum = new Intent(MainActivity.this, ForumCustomerActivity.class);
+                startActivity(openForum);
+                break;
             case R.id.nav_logout:
                 Intent openLogin = new Intent(MainActivity.this,LoginActivity.class);
                 mAuth.signOut();
