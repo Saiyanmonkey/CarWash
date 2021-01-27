@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -47,6 +49,13 @@ public class provider_history extends AppCompatActivity implements NavigationVie
         navigationView = findViewById(R.id.navigation_bar);
         Toolbar tb = findViewById(R.id.toolbar);
         listView = findViewById(R.id.historyList);
+
+        //Set Navigation Name
+
+
+        View v = navigationView.getHeaderView(0);
+        TextView text = v.findViewById(R.id.nav_username);
+        text.setText(currentUser.getDisplayName());
 
         ArrayList<Order> list = new ArrayList<>();
         adapter = new OrderAdapter(this,list);

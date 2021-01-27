@@ -66,6 +66,10 @@ public class ForumCustomerActivity extends AppCompatActivity implements Navigati
         currentUser = mAuth.getCurrentUser();
         iniPopup();
 
+        View v = navigationView.getHeaderView(0);
+        TextView text = v.findViewById(R.id.nav_username);
+        text.setText(currentUser.getDisplayName());
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

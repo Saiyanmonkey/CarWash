@@ -22,20 +22,30 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/mycardview"
             android:layout_alignTop="@+id/mycardview"
-            android:layout_margin="18dp"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="18dp"
             android:fontFamily="@font/opensans_bold"
             android:text="Customer"
             android:textColor="#1C69FF"
             android:textSize="16dp"
             tools:ignore="NotSibling" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/customerName"
+            android:text="Provider"
+            android:id="@+id/provider"
+
+            android:layout_marginHorizontal="18dp"
+            android:fontFamily="@font/opensans_bold"/>
 
         <TextView
             android:id="@+id/locationtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/customerName"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="28dp"
+            android:layout_below="@id/provider"
+            android:layout_marginTop="18dp"
+            android:layout_marginHorizontal="18dp"
             android:fontFamily="@font/opensans_bold"
             android:text="Location"
             android:textColor="#C6C6C6"
@@ -45,9 +55,9 @@
             android:id="@+id/pricetitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/customerName"
+            android:layout_alignTop="@id/locationtitle"
             android:layout_marginLeft="128dp"
-            android:layout_marginTop="28dp"
+
             android:layout_toRightOf="@id/locationtitle"
             android:fontFamily="@font/opensans_bold"
             android:text="Price"
@@ -56,10 +66,11 @@
 
         <TextView
             android:id="@+id/locationname"
-            android:layout_width="wrap_content"
+            android:layout_width="180sp"
             android:layout_height="wrap_content"
             android:layout_below="@id/locationtitle"
             android:layout_marginLeft="18dp"
+            android:layout_marginHorizontal="18dp"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/opensans_bold"
             android:text="Location name"
@@ -84,11 +95,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="128dp"
-            android:layout_marginTop="18dp"
+
             android:layout_toRightOf="@id/locationtitle"
             android:drawablePadding="4dp"
             android:fontFamily="@font/opensans_bold"
             android:gravity="center"
+            android:layout_alignBottom="@id/customerName"
 
             android:text="Package"
             android:textColor="#000000"

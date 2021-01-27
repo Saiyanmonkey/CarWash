@@ -12,13 +12,16 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     FirebaseAuth mAuth;
+    FirebaseUser currentUser;
     private DrawerLayout drawerLayout;
     Button button;
     NavigationView navigationView;
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
 
         navigationView = findViewById(R.id.navigation_bar);
         Toolbar tb = findViewById(R.id.toolbar);
@@ -37,7 +41,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         setSupportActionBar(tb);
 
-        navigationView.getMenu();
+        //Set Navigation Name
+
+
+
+        View v = navigationView.getHeaderView(0);
+        TextView text = v.findViewById(R.id.nav_username);
+        text.setText(currentUser.getDisplayName());
 
 
 

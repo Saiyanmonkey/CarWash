@@ -19,7 +19,7 @@ public class OrderSuccess extends AppCompatActivity {
         findViewById(R.id.backhome).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(OrderSuccess.this, MainActivity.class);
+                Intent intent = new Intent(OrderSuccess.this, CustomerPending_Orders.class);
                 startActivity(intent);
             }
         });

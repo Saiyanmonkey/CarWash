@@ -73,6 +73,10 @@ public class ForumActivity extends AppCompatActivity implements NavigationView.O
         Toolbar tb = findViewById(R.id.toolbar);
         drawerLayout = findViewById(R.id.drawer_layout);
 
+        View v = navigationView.getHeaderView(0);
+        TextView text = v.findViewById(R.id.nav_username);
+        text.setText(currentUser.getDisplayName());
+
         setSupportActionBar(tb);
         //navigationView.getMenu();
 

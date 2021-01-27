@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -49,6 +50,13 @@ public class Orders extends AppCompatActivity implements NavigationView.OnNaviga
         navigationView = findViewById(R.id.navigation_bar);
         Toolbar tb = findViewById(R.id.toolbar);
         listView = findViewById(R.id.orderList);
+
+        //Set Navigation Name
+
+        View v = navigationView.getHeaderView(0);
+        TextView text = v.findViewById(R.id.nav_username);
+        text.setText(currentUser.getDisplayName());
+
 
         ArrayList<Order> list = new ArrayList<>();
         adapter = new OrderAdapter(this, list);

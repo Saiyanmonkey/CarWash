@@ -49,6 +49,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
         holder.name.setText(order.getName());
         holder.location.setText(order.getLocation());
         holder.price.setText(order.getCost());
+        holder.provider.setText(order.getProvider());
         holder.package_name.setText(order.getPackageName());
         final String Name = order.getName();
         holder.view.setOnClickListener(new View.OnClickListener() {
@@ -100,12 +101,13 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView name, location, price, package_name;
+        TextView name, location, price, package_name,provider;
         View view;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.customerName);
+            provider = itemView.findViewById(R.id.provider);
             location = itemView.findViewById(R.id.locationname);
             price = itemView.findViewById(R.id.pricevalue);
             package_name = itemView.findViewById(R.id.package_name);

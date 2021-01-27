@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -57,6 +59,13 @@ public class CustomerPending_Orders extends AppCompatActivity implements Navigat
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
+
+        //Set Navigation Name
+
+
+        View v = navigationView.getHeaderView(0);
+        TextView text = v.findViewById(R.id.nav_username);
+        text.setText(mUser.getDisplayName());
 
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Orders").child("Pending").child("Customer").child(mUser.getUid());

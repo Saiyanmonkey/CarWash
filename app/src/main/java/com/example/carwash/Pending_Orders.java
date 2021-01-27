@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -15,6 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,8 +36,7 @@ public class Pending_Orders extends AppCompatActivity implements NavigationView.
     RecyclerView listView;
     OrderAdapter adapter;
 
-    AlertDialog.Builder dialogBuilder;
-    AlertDialog dialog;
+
 
 
     @Override
@@ -41,10 +44,20 @@ public class Pending_Orders extends AppCompatActivity implements NavigationView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pending);
 
+
+
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_bar);
         tb = findViewById(R.id.toolbar);
         listView = findViewById(R.id.pending_List);
+
+        //Set Navigation Name
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        View v = navigationView.getHeaderView(0);
+        TextView text = v.findViewById(R.id.nav_username);
+        text.setText(currentUser.getDisplayName());
 
         ArrayList<Order> list = new ArrayList<>();
         adapter = new OrderAdapter(getApplicationContext(), list);

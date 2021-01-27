@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -48,6 +49,13 @@ public class CustomerActiveOrders extends AppCompatActivity implements Navigatio
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
+
+        //Set Navigation Name
+
+
+        View v = navigationView.getHeaderView(0);
+        TextView text = v.findViewById(R.id.nav_username);
+        text.setText(mUser.getDisplayName());
 
         ArrayList<Order> list = new ArrayList<>();
         adapter = new OrderAdapter(this, list);
